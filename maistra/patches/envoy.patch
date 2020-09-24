@@ -1,0 +1,27 @@
+diff --git a/bazel/external/wee8.genrule_cmd b/bazel/external/wee8.genrule_cmd
+index fc8c91d7a..3215c638b 100644
+--- a/bazel/external/wee8.genrule_cmd
++++ b/bazel/external/wee8.genrule_cmd
+@@ -79,7 +79,7 @@ if [[ `uname -m` == "aarch64" ]]; then
+ fi
+
+ # Build wee8.
+-third_party/depot_tools/gn gen out/wee8 --args="$$WEE8_BUILD_ARGS"
++gn gen out/wee8 --args="$$WEE8_BUILD_ARGS"
+ ninja -C out/wee8 wee8
+
+ # Move compiled library to the expected destinations.
+diff --git a/bazel/foreign_cc/BUILD b/bazel/foreign_cc/BUILD
+index 2658b72e8..4b5058a3d 100644
+--- a/bazel/foreign_cc/BUILD
++++ b/bazel/foreign_cc/BUILD
+@@ -48,7 +48,7 @@ configure_make(
+         "//bazel:asan_build": {"ENVOY_CONFIG_ASAN": "1"},
+         "//conditions:default": {},
+     }),
+-    lib_source = "@com_github_luajit_luajit//:all",
++    lib_source = "@com_github_moonjit_moonjit//:all",
+     make_commands = [],
+     out_include_dir = "include/luajit-2.1",
+     static_libraries = [
+
